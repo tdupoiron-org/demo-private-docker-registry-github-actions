@@ -1,4 +1,9 @@
-variable "resource_group_name" {
+variable "resource_prefix" {
+  type        = string
+  default     = "tdupoiron"
+}
+
+variable "resource_owner" {
   type        = string
   default     = "tdupoiron"
 }
@@ -6,11 +11,6 @@ variable "resource_group_name" {
 variable "resource_group_location" {
   type        = string
   default     = "francecentral"
-}
-
-variable "azurerm_kubernetes_cluster_name" {
-  type        = string
-  default     = "tdupoiron-cluster"
 }
 
 variable "azurerm_kubernetes_cluster_dns_prefix" {
