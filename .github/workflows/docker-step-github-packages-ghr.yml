@@ -1,0 +1,15 @@
+name: Docker step from GitHub Packages on GHR
+
+on:
+  workflow_dispatch: 
+
+permissions: 
+  packages: read
+
+jobs:
+
+  docker-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Docker step from GitHub Packages
+        uses: docker://ghcr.io/tdupoiron-org/demo-packages:1698240509

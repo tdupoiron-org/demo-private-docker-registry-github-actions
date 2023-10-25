@@ -1,4 +1,4 @@
-name: Docker step from GitHub Packages
+name: Docker step from GitHub Packages on SHR
 
 on:
   workflow_dispatch: 
@@ -9,7 +9,7 @@ permissions:
 jobs:
 
   docker-run:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
     steps:
       - name: Docker step from GitHub Packages
         uses: docker://ghcr.io/tdupoiron-org/demo-packages:1698240509
