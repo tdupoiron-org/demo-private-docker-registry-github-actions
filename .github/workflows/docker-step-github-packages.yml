@@ -3,8 +3,11 @@ name: Docker step from GitHub Packages
 on:
   workflow_dispatch: 
 
+permissions: 
+  packages: read
+
 jobs:
-  
+
   docker-run:
     runs-on: ubuntu-latest
     steps:
