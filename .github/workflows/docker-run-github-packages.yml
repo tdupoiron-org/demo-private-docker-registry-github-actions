@@ -1,0 +1,25 @@
+name: Docker run from GitHub Packages
+
+on:
+  workflow_dispatch: 
+
+permissions: 
+  packages: read
+
+jobs:
+
+  docker-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to GitHub Packages
+        uses: docker/login-action@v1
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull image
+        run: docker pull ghcr.io/tdupoiron-org/demo-packages:1698240509
+
+      - name: Run image
+        run: docker run ghcr.io/tdupoiron-org/demo-packages:1698240509
