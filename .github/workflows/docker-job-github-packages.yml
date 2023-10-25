@@ -15,7 +15,7 @@ jobs:
       image: ghcr.io/tdupoiron-org/demo-packages:latest
       credentials:
         username: ${{ github.actor }}
-        password: ${{ secrets.GITHUB_TOKEN }}
+        password: ${{ secrets.TD_GITHUB_TOKEN_PACKAGES }}
 
     steps:
       - name: Run docker image
