@@ -12,10 +12,10 @@ jobs:
     runs-on: ubuntu-latest
 
     container: 
-      image: ghcr.io/tdupoiron-org/demo-packages:latest
+      image: ghcr.io/tdupoiron-org/demo-packages:1698240509
       credentials:
         username: ${{ github.actor }}
-        password: ${{ secrets.TD_GITHUB_TOKEN_PACKAGES }}
+        password: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
       - name: Run docker image

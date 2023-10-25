@@ -12,4 +12,4 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Docker step from GitHub Packages
-        uses: docker://ghcr.io/tdupoiron-org/demo-packages:latest
+        uses: docker://ghcr.io/tdupoiron-org/demo-packages:1698240509
