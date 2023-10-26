@@ -1,0 +1,21 @@
+name: Call reusable workflow to run Docker container
+
+on:
+  workflow_dispatch: 
+
+env:
+  DOCKER_REGISTRY_DOMAIN: ghcr.io
+  DOCKER_REGISTRY_USERNAME: ${{ github.actor }}
+  DOCKER_REGISTRY_PASSWORD: ${{ secrets.GITHUB_TOKEN }}
+  DOCKER_IMAGE_NAME: tdupoiron-org/demo-packages
+  DOCKER_IMAGE_TAG: 1698240509
+
+jobs:
+  run-docker:
+    uses: ./.github/workflows/docker-run-github-packages-rw.yml@main
+    with:
+      docker_image_name: ${{ vars.DOCKER_IMAGE_NAME }}
+      docker_image_tag: ${{ vars.DOCKER_IMAGE_TAG }}
+      docker_registry_domain: ${{ vars.DOCKER_REGISTRY_DOMAIN }}
+      docker_registry_username: ${{ vars.DOCKER_REGISTRY_USERNAME }}
+      docker_registry_password: ${{ vars.DOCKER_REGISTRY_PASSWORD }}

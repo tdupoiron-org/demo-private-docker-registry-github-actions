@@ -1,0 +1,46 @@
+name: Reusable workflow - run Docker container from GitHub Packages
+
+on:
+  workflow_call: 
+    inputs:
+      docker-registry-domain:
+        description: 'Registry Domain'
+        type: string
+        required: true
+      docker-registry-username:
+        description: 'Login to registry'
+        type: string
+        required: true
+      docker-registry-password:
+        description: 'Password to registry'
+        type: string
+        required: true
+      docker-image-name:
+        description: 'Image name'
+        type: string
+        required: true
+      docker-image-tag:
+        description: 'Image tag'
+        type: string
+        required: true
+
+permissions: 
+  packages: read
+
+jobs:
+
+  docker-run:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Login to GitHub Packages
+        uses: docker/login-action@v1
+        with:
+          registry: ${{ github.event.inputs.docker-registry-domain }}
+          username: ${{ github.event.inputs.docker-registry-username }}
+          password: ${{ github.event.inputs.docker-registry-password }}
+
+      - name: Pull image
+        run: docker pull ${{ github.event.inputs.docker-registry-domain }}/${{ github.event.inputs.docker-image-name }}:${{ github.event.inputs.docker-image-tag }}
+
+      - name: Run image
+        run: docker run ${{ github.event.inputs.docker-registry-domain }}/${{ github.event.inputs.docker-image-name }}:${{ github.event.inputs.docker-image-tag }}

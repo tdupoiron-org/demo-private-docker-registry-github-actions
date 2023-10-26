@@ -1,7 +1,7 @@
 name: Docker run from GitHub Packages
 
 on:
-  workflow_dispatch: 
+  workflow_dispatch:
 
 permissions: 
   packages: read
