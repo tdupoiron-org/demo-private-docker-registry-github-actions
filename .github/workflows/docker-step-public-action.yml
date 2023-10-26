@@ -1,0 +1,19 @@
+name: Docker step from public action
+
+on:
+  workflow_dispatch: 
+
+permissions: 
+  packages: read
+
+jobs:
+
+  docker-run:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: addnab/docker-run-action@v3
+        with:
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+          registry: ghcr.io
+          image: tdupoiron-org/demo-packages:1698240509
