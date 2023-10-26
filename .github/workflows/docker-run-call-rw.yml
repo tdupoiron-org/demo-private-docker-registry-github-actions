@@ -1,4 +1,4 @@
-name: Call reusable workflow to run Docker container
+name: Call reusable workflow
 
 on:
   workflow_dispatch: 
@@ -12,7 +12,7 @@ env:
 
 jobs:
   run-docker:
-    uses: ./.github/workflows/docker-run-github-packages-rw.yml@main
+    uses: ./.github/workflows/docker-run-rw.yml@main
     with:
       docker_image_name: ${{ vars.DOCKER_IMAGE_NAME }}
       docker_image_tag: ${{ vars.DOCKER_IMAGE_TAG }}

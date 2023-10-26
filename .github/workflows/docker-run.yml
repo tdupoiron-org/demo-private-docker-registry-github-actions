@@ -1,4 +1,4 @@
-name: Docker run from GitHub Packages
+name: Docker container un run commands
 
 on:
   workflow_dispatch:

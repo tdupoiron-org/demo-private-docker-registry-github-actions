@@ -1,0 +1,16 @@
+name: Docker step on SHR
+
+on:
+  workflow_dispatch: 
+
+permissions: 
+  packages: read
+
+jobs:
+
+  docker-run:
+    runs-on: self-hosted
+    steps:
+      - name: Docker step from GitHub Packages
+        uses: docker://ghcr.io/tdupoiron-org/demo-packages:1698240509
+        # Authentication cannot be passed here

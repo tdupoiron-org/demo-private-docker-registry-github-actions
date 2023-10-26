@@ -1,4 +1,4 @@
-name: Reusable workflow - run Docker container from GitHub Packages
+name: Reusable workflow - Run Docker container
 
 on:
   workflow_call: 
