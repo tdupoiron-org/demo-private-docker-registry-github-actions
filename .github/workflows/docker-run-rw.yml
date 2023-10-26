@@ -28,15 +28,15 @@ jobs:
   docker-run:
     runs-on: ubuntu-latest
     steps:
-      - name: Login to GitHub Packages
-        uses: docker/login-action@v1
+      - name: Docker Login
+        uses: docker/login-action@v3.0.0
         with:
-          registry: ${{ github.event.inputs.docker-registry-domain }}
-          username: ${{ github.event.inputs.docker-registry-username }}
-          password: ${{ github.event.inputs.docker-registry-password }}
+          registry: ${{ inputs.docker-registry-domain }}
+          username: ${{ inputs.docker-registry-username }}
+          password: ${{ secrets.docker-registry-password }}
 
       - name: Pull image
-        run: docker pull ${{ github.event.inputs.docker-registry-domain }}/${{ github.event.inputs.docker-image-name }}:${{ github.event.inputs.docker-image-tag }}
+        run: docker pull ${{ inputs.docker-registry-domain }}/${{ inputs.docker-image-name }}:${{ inputs.docker-image-tag }}
 
       - name: Run image
-        run: docker run ${{ github.event.inputs.docker-registry-domain }}/${{ github.event.inputs.docker-image-name }}:${{ github.event.inputs.docker-image-tag }}
+        run: docker run ${{ inputs.docker-registry-domain }}/${{ inputs.docker-image-name }}:${{ inputs.docker-image-tag }}
