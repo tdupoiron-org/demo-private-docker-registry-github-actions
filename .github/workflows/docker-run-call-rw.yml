@@ -15,8 +15,8 @@ jobs:
     uses: tdupoiron-org/demo-private-docker-registry-github-actions/.github/workflows/docker-run-rw.yml@main
 
     with:
-      docker_image_name: ${{ vars.DOCKER_IMAGE_NAME }}
-      docker_image_tag: ${{ vars.DOCKER_IMAGE_TAG }}
-      docker_registry_domain: ${{ vars.DOCKER_REGISTRY_DOMAIN }}
-      docker_registry_username: ${{ vars.DOCKER_REGISTRY_USERNAME }}
-      docker_registry_password: ${{ vars.DOCKER_REGISTRY_PASSWORD }}
+      docker_image_name: ${{ env.DOCKER_IMAGE_NAME }}
+      docker_image_tag: ${{ env.DOCKER_IMAGE_TAG }}
+      docker_registry_domain: ${{ env.DOCKER_REGISTRY_DOMAIN }}
+      docker_registry_username: ${{ env.DOCKER_REGISTRY_USERNAME }}
+      docker_registry_password: ${{ env.DOCKER_REGISTRY_PASSWORD }}
