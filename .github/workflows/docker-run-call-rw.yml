@@ -12,7 +12,8 @@ env:
 
 jobs:
   run-docker:
-    uses: tdupoiron-org/demo-private-registry-github-actions/.github/workflows/docker-run-rw.yml@main
+    uses: tdupoiron-org/demo-private-docker-registry-github-actions/.github/workflows/docker-run-rw.yml@main
+
     with:
       docker_image_name: ${{ vars.DOCKER_IMAGE_NAME }}
       docker_image_tag: ${{ vars.DOCKER_IMAGE_TAG }}

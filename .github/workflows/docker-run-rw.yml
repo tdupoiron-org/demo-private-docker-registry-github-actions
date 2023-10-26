@@ -4,24 +4,20 @@ on:
   workflow_call: 
     inputs:
       docker-registry-domain:
-        description: 'Registry Domain'
         type: string
         required: true
       docker-registry-username:
-        description: 'Login to registry'
-        type: string
-        required: true
-      docker-registry-password:
-        description: 'Password to registry'
         type: string
         required: true
       docker-image-name:
-        description: 'Image name'
         type: string
         required: true
       docker-image-tag:
-        description: 'Image tag'
         type: string
+        required: true
+    
+    secrets:
+      docker-registry-password:
         required: true
 
 permissions: 
