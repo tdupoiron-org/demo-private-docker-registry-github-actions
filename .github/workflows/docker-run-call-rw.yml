@@ -18,4 +18,5 @@ jobs:
       docker-image-tag: ${{ vars.DOCKER_IMAGE_TAG }}
       docker-registry-domain: ${{ vars.DOCKER_REGISTRY_DOMAIN }}
       docker-registry-username: ${{ vars.DOCKER_REGISTRY_USERNAME }}
+    secrets:
       docker-registry-password: ${{ vars.DOCKER_REGISTRY_PASSWORD }}
